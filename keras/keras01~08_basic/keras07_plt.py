@@ -1,7 +1,7 @@
 from tensorflow.keras.models import Sequential
 from tensorflow.keras.layers import Dense
 import numpy as np
-import matplotlib.pyplot as plt     # 그래프나 그림그릴때 많이 씀
+import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 
 #1. 데이터
@@ -21,13 +21,13 @@ model.add(Dense(1))
 model.compile(loss='mse', optimizer='adam') 
 model.fit(x_train,y_train,epochs=100, batch_size=1)
 
-#4. 평가, 예측      이건 진짜 말그대로 그냥 해보는것. 여기서 나온 loss값과 훈련에서 나온 loss값의 차이가 적을수록 정확한것.
-# 근데 생각해보니까 기본적으로 데이터를 정제 잘하고 뺄건 빼서 넘겨주는게 제일 중요할것 같다.
-loss = model.evaluate(x_test,y_test) # 평가해보는 단계. 이미 다 나와있는  w,b에 test데이터를 넣어보고 평가해본다.
+#4. 평가, 예측 
+loss = model.evaluate(x_test,y_test)
 print('loss : ', loss)
 
 y_predict = model.predict(x)
 
 plt.scatter(x, y) 
 plt.plot(x, y_predict, color='red') # scatter 점찍다 plot 선을 보여준다 
-plt.show() 
+plt.show()
+plt.savefig('graph/keras_07') 

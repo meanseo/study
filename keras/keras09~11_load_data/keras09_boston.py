@@ -1,10 +1,11 @@
 # 20~30년전의 보스턴 집값 데이터를 활용하는 예제.
 # 오늘 배운 모든 것을 총동원해서 알고리즘 완성해보기 
 # train_test set 0.6~0.8 사이 , r2 score 0.8이상 
-# r2 score (결정계수): 상관계수의 제곱 / 상관계수와는 다르게 상관 분석이 아닌 회귀 분석에서 사용하는 수치) -> 예측 값과 실제 값의 ??평가 지표 / 회귀 모델의 성능에 대한 평가 지표
+# r2 score (결정계수): 상관계수의 제곱 / 상관계수와는 다르게 상관 분석이 아닌 회귀 분석에서 사용하는 수치) 
+# -> 예측 값과 실제 값의 평가 지표 / 회귀 모델의 성능에 대한 평가 지표
 # 상관계수 범위 : -1<=r<=1 / 결정계수의 범위 : 0<=r<=1 --> 제곱이니까
 # 1에 가까울수록 해당 선형 회귀 모델이 해당 데이터에 대한 높은 연관성을 가지고 있다고 해석할 수 있음
-# r2 = r2_score(y, lr.predict(x_2)
+# r2 = r2_score(y, lr.predict(x_2))
 # y는 실제값, ir.predict는 fitting된 선형 회귀 모델을 통해 도출된 예측 값
 
 
@@ -13,26 +14,23 @@ from tensorflow.keras.layers import Dense
 from sklearn.datasets import load_boston
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import r2_score
+from icecream import ic
 
-#1 데이터 정제작업 !!
+#1 데이터 정제작업
 datasets = load_boston()
 x = datasets.data
 y = datasets.target
 
-print(x.shape)
-
-# print(x)    # x내용물 확인
-# print(y)    # y내용물 확인
-# print(x.shape) # x형태
-# print(y.shape) # y형태
+# ic(x)
+# ic(y)
+# print(x.shape)
+# print(y.shape)
 # print(datasets.feature_names) # 컬럼,열의 이름들
 # print(datasets.DESCR) # 데이터셋 및 컬럼에 대한 설명 
-
 print(x[:50])
-# exit()
-x_train,x_test,y_train,y_test = train_test_split(x, y, train_size=0.7, shuffle=True, random_state=66)
-# random_state 랜덤 분할시 훈련을 할때마다 범위가 달라지니 고정을 시켜주는 역할
-#이거 하나로 다 해결;;;
+
+x_train,x_test,y_train,y_test = train_test_split(x, y, train_size=0.8, shuffle=True, random_state=42)
+
 
 #2. 모델링 
 model = Sequential()

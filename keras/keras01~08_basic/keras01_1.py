@@ -14,7 +14,7 @@ model.add(Dense(1, input_dim=1)) # Dense 레이어 추가
 # 앞의 숫자가 출력 노드 갯수 / input_dim=1 -> 입력 데이터의 차원이 1차원?? 아니면 입력 노드
 
 #3. 컴파일, 훈련
-# 컴퓨터가 알아듣게 훈련시키는 거싱 그게 컴파일 y = wx + b 최적의 weight값을 빼기 위한 최소의 loss 값을 찾는다.
+# 컴퓨터가 알아듣게 훈련시키는 것,  그게 컴파일 y = wx + b 최적의 weight값을 빼기 위한 최소의 loss 값을 찾는다.
 # mse(mean squared error): 회귀 용도의 모델을 훈련시킬 때 사용되는 손실함수
 model.compile(loss='mse', optimizer='adam') # 평균 제곱 에러 mse 이 값은 작을수록 좋다. optimizer='adam'은 mse값(loss) 감축시키는 역할. 85점 이상이면 쓸만하다.
 

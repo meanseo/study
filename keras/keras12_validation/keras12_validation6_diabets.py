@@ -49,6 +49,5 @@ y_predict = model.predict(x_test)
 r2 = r2_score(y_test,y_predict) 
 print('r2스코어 : ', r2)
 
-# r2스코어 :  0.6340421293580923
-# r2스코어 :  0.646241289117871  epochs=100, batch_size=1
-# r2스코어 :  0.6413384495814317  epochs=100, batch_size=1 모델링 변경
+# loss :  1905.5032958984375
+# r2스코어 :  0.6248208404381363

@@ -25,14 +25,14 @@ model.add(Dense(20 ,activation="relu")) #
 model.add(Dense(7, activation='softmax')) 
 '''
 
-input1 = Input(shape=(54,))
-dense1 = Dense(100,activation="relu")(input1)
+input = Input(shape=(54,))
+dense1 = Dense(100,activation="relu")(input)
 dense2 = Dense(80)(dense1)
 dense3 = Dense(60,activation="relu")(dense2)
 dense4 = Dense(40)(dense3)
 dense5 = Dense(20)(dense4)
-output1 = Dense(7,activation='softmax')(dense5)
-model = Model(inputs=input1,outputs=output1)
+output = Dense(7,activation='softmax')(dense5)
+model = Model(input, output)
 
 model.compile(loss='categorical_crossentropy', optimizer='adam', metrics=['accuracy']) 
 es = EarlyStopping(monitor="val_loss", patience=100, mode='min',verbose=1,baseline=None, restore_best_weights=True)

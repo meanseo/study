@@ -6,7 +6,7 @@ from sklearn.metrics import r2_score
 from tensorflow.keras.callbacks import EarlyStopping, ModelCheckpoint
 import matplotlib.pyplot as plt
 
-#1 데이터 정제작업 !!
+#1 데이터 정제작업
 datasets = load_boston()
 x = datasets.data
 y = datasets.target
@@ -29,7 +29,7 @@ model.compile(loss='mse', optimizer='adam')
 
 es = EarlyStopping(monitor='val_loss', patience=10, mode='min', verbose=1, restore_best_weights=True)#
 mcp = ModelCheckpoint(monitor='val_loss', mode='auto', verbose=1, save_best_only=True, filepath='./_ModelCheckPoint/keras26_11_MCP.hdf5')
-# es에서 restore_bets_weights = True,False하든말든 mcp는 나름대로 save_best_only를 계속 수행하고 값을 저장한다.
+# es에서 restore_bets_weights = True,False하든말든 mcp는 save_best_only를 계속 수행하고 값을 저장
 # save_weights_only = True 했을경우 load_weights해서 사용
 
 hist = model.fit(x_train,y_train,epochs=500, batch_size=8,validation_split=0.25, callbacks=[es,mcp]) 
@@ -55,7 +55,7 @@ plt.xlabel('epoch')
 plt.legend(loc='upper right')
 plt.show()
 
-model.save("./_save/keras26_11_save_MCP.h5")     #<-- 여기서 저장하는 값은 es 여기서 주는 w값을 받아와서 저장.
+model.save("./_save/keras26_11_save_MCP.h5") # es에서 주는 w값을 받아와서 저장
 #4. 평가 , 예측
 loss = model.evaluate(x_test,y_test)
 print('loss : ', loss)

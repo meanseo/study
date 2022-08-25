@@ -33,8 +33,6 @@ filters: Integer, the dimensionality of the output space (i.e. the number of out
 # 파라미터 개수 구조 확인 
 # https://velog.io/@cateto/Deep-Learning-vanila-RNN%EC%97%90%EC%84%9C-%ED%8C%8C%EB%9D%BC%EB%AF%B8%ED%84%B0%EC%9D%98-%EA%B0%9C%EC%88%98-%EA%B5%AC%ED%95%98%EA%B8%B0
 
-
-'''
 #3. 컴파일, 훈련
 model.compile(loss='mae', optimizer='adam')      # optimizer는 loss를 최적화한다
 model.fit(x, y, epochs=100, batch_size=1)
@@ -43,4 +41,6 @@ model.evaluate(x, y)
 x2 = np.array([5,6,7]).reshape(1,3,1)
 result = model.predict(x2)
 print(result)
+'''
+
 '''

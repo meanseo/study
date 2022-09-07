@@ -122,4 +122,4 @@ fakeclf = MyFakeClassifier()
 fakeclf.fit(X_train , y_train)
 fakepred = fakeclf.predict(X_test)
 print('모든 예측을 0으로 하여도 정확도는:{:.3f}'.format(accuracy_score(y_test , fakepred)))
-'''모든 예측을 0으로 하여도 정확도는:0.900'''
+''' 모든 예측을 0으로 하여도 정확도는:0.900 '''
